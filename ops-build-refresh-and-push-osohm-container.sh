@@ -70,7 +70,7 @@ fi
 
 sudo docker build ${NOCACHE} -t registry.reg-aws.openshift.com:443/ops/oso-rhel7-host-monitoring:${ENVIRONMENT} -<<EOF
 FROM registry.reg-aws.openshift.com:443/ops/oso-rhel7-host-monitoring:${ENVIRONMENT}
-RUN yum-install-check.sh -y \
+RUN yum-install-check.sh -y --disablerepo=* --enablerepo=ops-rpm \
         python-openshift-tools \
         python-openshift-tools-monitoring-pcp \
         python-openshift-tools-monitoring-docker \
